@@ -81,7 +81,7 @@ def count_planned_obs():
     headers,outString = mastQuery(mashupRequest)
     countData = json.loads(outString)
 
-    #pp.pprint(countData)
+    pp.pprint(countData)
     data = countData['data']
     count = data[0]['Column1']
     return count
@@ -89,6 +89,7 @@ def count_planned_obs():
 def get_planned_obs():
     mashupRequest = {"service":"Mast.Caom.Filtered.TestV230",
                      "format":"json",
+                     #"clearcache":"true",
                      "params":{
                          "columns":"*",
                          "filters":[
@@ -206,5 +207,5 @@ def analyze_results():
     stats = analyze_stats(results)
 
 if __name__ == "__main__":
-    #collect_results()
+    collect_results()
     analyze_results()
